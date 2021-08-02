@@ -10,13 +10,6 @@ jobs:
       shell: powershell.exe
     steps:
       - run: systeminfo
-      - run:
-         command: wget https://mirror.koddos.net/apache/hadoop/common/hadoop-3.2.2/hadoop-3.2.2-src.tar.gz -O hadoop-3.2.2-src.tar.gz
-         shell: bash.exe
-      - run:
-         command: tar -zxf hadoop-3.2.2-src.tar.gz
-         shell: bash.exe
-      - run:
-         command: ls -lh
-         shell: bash.exe
-   
+      - run: wget https://mirror.koddos.net/apache/hadoop/common/hadoop-3.2.2/hadoop-3.2.2-src.tar.gz -O hadoop-3.2.2-src.tar.gz
+      - run: tar -zxf hadoop-3.2.2-src.tar.gz
+      - run: ls -h
