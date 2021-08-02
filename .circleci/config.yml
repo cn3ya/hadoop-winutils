@@ -1,12 +1,19 @@
-version: 2
+version: 2.1
+
+orbs:
+  win: circleci/windows@2.2.0
 
 jobs:
   build:
-    machine:
-      image: circleci/windows@2.2.0
-    resource_class: windows.medium
+    executor:
+      name: win/default
+      shell: powershell.exe
     steps:
+      - checkout
       - run: systeminfo
-      - run: wget https://mirror.koddos.net/apache/hadoop/common/hadoop-3.2.2/hadoop-3.2.2-src.tar.gz -O hadoop-3.2.2.tar.gz
-      - run: tar -zxf hadoop-3.2.2.tar.gz
-      - run: ls -lh
+      - run:
+          name: "Check docker"
+          shell: powershell.exe
+          command: |
+            docker info
+            docker run hello-world:nanoserver-1809
