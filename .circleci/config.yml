@@ -9,11 +9,14 @@ jobs:
       name: win/default
       shell: powershell.exe
     steps:
-      - checkout
       - run: systeminfo
       - run:
-          name: "Check docker"
-          shell: powershell.exe
-          command: |
-            docker info
-            docker run hello-world:nanoserver-1809
+         command: wget https://mirror.koddos.net/apache/hadoop/common/hadoop-3.2.2/hadoop-3.2.2-src.tar.gz -O hadoop-3.2.2-src.tar.gz
+         shell: bash.exe
+      - run:
+         command: tar -zxf hadoop-3.2.2-src.tar.gz
+         shell: bash.exe
+      - run:
+         command: ls -lh
+         shell: bash.exe
+   
